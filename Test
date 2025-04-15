@@ -1,0 +1,72 @@
+public enum Book {
+    ANIMAL_FARM("Orwell", "political satire", 92, 1945),
+    DEATH_OF_A_SALESMAN("Miller", "tragedy", 144, 1949),
+    FAHRENHEIT_451("Bradbury", "dystopian fiction", 180, 1953),
+    HAMLET("Shakespeare", "Shakespearean tragedy", 330, 1623),
+    IN_THE_SKIN_OF_A_LION("Ondaajte", "historical fiction", 256, 1987),
+    NINETEEN_EIGHTY_FOUR("Orwell", "dystopian-politcal fiction", 328, 1949),
+    THEIR_EYES_WERE_WATCHING_GOD("Hurston", "psychological fiction", 219, 1937),
+    THE_GREAT_GATSBY("Fitzgerald", "tragedy", 180, 1925),
+    THE_JOY_LUCK_CLUB("Tan", "domestic fiction", 352, 1989),
+    THE_TRAGEDY_OF_MACBETH("Shakespeare", "Shakespearean tragedy", 116, 1623);
+    
+    private String author;
+    private String genre;
+    private int pageCount;
+    private int yearPublished;
+    
+    
+    Book(String author, String genre, int pageCount, int yearPublished) {
+        this.author = author;
+        this.genre = genre;
+        this.pageCount = pageCount;
+        this.yearPublished = yearPublished;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getPageCount() {
+        return pageCount;
+    }
+    
+    public int getYearPublished() {
+        return yearPublished;
+    }
+
+    public String[] aboutBook() {
+        String[] aboutBook = new String[4];
+
+        aboutBook[0] = "Author: " + author;
+        aboutBook[1] = "Genre: " + genre;
+        aboutBook[2] = "Pages: " + Integer.toString(pageCount);
+        aboutBook[3] = "Year published: " + Integer.toString(yearPublished);
+
+        return aboutBook;
+    }
+
+    public double timeTakesToRead(String speed) {
+        double minPerPage = 0;
+
+        switch(speed) {
+            case "slow":
+                minPerPage = 3;
+                break;
+            case "average":
+                MINUTES_PER_PAGE = 1.5;
+                break;
+            case "fast": 
+                MINUTES_PER_PAGE = 0.8;
+                break;
+            default: 
+                break;
+        }
+
+        return MINUTES_PER_PAGE * pageCount / 60;
+    }
+}
